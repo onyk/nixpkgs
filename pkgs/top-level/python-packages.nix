@@ -1173,6 +1173,8 @@ in {
 
   bibtexparser = callPackage ../development/python-modules/bibtexparser { };
 
+  bidict = callPackage ../development/python-modules/bidict { };
+
   binwalk_fun = { visualizationSupport ? false, pyqtgraph ? null }:
     assert visualizationSupport -> pyqtgraph != null;
 
