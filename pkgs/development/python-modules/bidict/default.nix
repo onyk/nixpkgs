@@ -1,12 +1,12 @@
-{ stdenv, lib, buildPythonPackage, fetchPypi
+{ lib, buildPythonPackage, fetchPypi
 , setuptools_scm
 , pytestrunner, sortedcontainers, sortedcollections
 }:
 
 buildPythonPackage rec {
+  name = "${pname}-${version}";
   pname = "bidict";
   version = "0.15.0rc1";
-  name = "${pname}-${version}";
 
   src = fetchPypi {
     inherit pname version;
@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   doCheck = false;
 
-  meta = with stdenv.lib; {
+  meta = {
     description = "Efficient, Pythonic bidirectional map implementation and related functionality";
     homepage = "https://github.com/jab/bidict";
     license = lib.licenses.mpl20;
